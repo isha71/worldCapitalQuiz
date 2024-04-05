@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Capital Quiz</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/assets.css">
+</head>
+
+<body id="app">
+  <section class="columnAlignment sectionContainer">
+    <div class="columnAlignment taglineContainer ">
+      <p class="tagline">Test Your Global IQ: <br> Dive into Geography with Country Capital Quiz Adventure!</p>
+    </div>
+    <div class="columnAlignment alignSelfCenter formContainer">
+      <form class="columnAlignment " action="/submit" method="post">
+        <p class="score">
+          Total Score:
+          <span>
+            <%= locals.totalScore ? totalScore : "0" %>
+        </p>
+        </h3>
+        <span id="countryName">
+          <%=question.country %>
+        </span>
+        <div class="answerContainer">
+          <input type="text" name="answer" id="userInput" placeholder="Enter the capital" autofocus autocomplete="off">
+        </div>
+        <button type="submit">SUBMIT
+          <% if(locals.wasCorrect){ %>
+            <span class="checkmark">✔</span>
+            <% } else if (locals.wasCorrect===false) { %>
+              <span class="cross" id="error">✖</span>
+              <% } %>
+        </button>
+      </form>
+    </div>
+    <footer class="columnAlignment alignCenter">
+      <p>Made with ❤ by <a href="https://github.com/isha71" target="blank"><span class="authorName">Isha
+            Jain</span></a> &copy; <span id="year"></span>
+      </p>
+    </footer>
+  </section>
+
+
+
+
+
+  <script>
+    var wasCorrect = "<%= locals.wasCorrect %>";
+    console.log(wasCorrect)
+    if (wasCorrect === "false") {
+      alert('Game over! Final best score: <%= locals.totalScore %>');
+      document.getElementById("app").innerHTML = ' <span class="columnAlignment restartButtonContainer"><a href="/" class="restartButton">Restart</a></span>'
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+}
+
+.rowAlignment,
+.rowColumnAlignment {
+    display: flex;
+    flex-direction: row;
+}
+
+.columnAlignment {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.fill {
+    flex: 1 1 0;
+}
+
+.alignCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.alignSelfCenter {
+    align-self: center;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.justifySpaceBetween {
+    justify-content: space-between;
+}
+
+.justifyRight {
+    justify-content: flex-end;
+}
+
+.alignItemsCenter {
+    align-items: center;
+}
+
+.textAlignCenter {
+    text-align: center;
+}
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 650px) {
+    .rowColumnAlignment {
+        display: flex;
+        flex-direction: column;
+    }
+}
